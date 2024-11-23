@@ -1,0 +1,24 @@
+{
+  "name": "accurecord",
+  "version": "1.0.0",
+  "description": "The Centralized Patient History Management System (CPHMS) is a web application designed to streamline the storage, retrieval, and management of patient medical histories across multiple hospitals and doctors. This system addresses the critical need for interoperability and centralized access in healthcare, ensuring that healthcare providers can efficiently collaborate and provide better care.The application will be built using the MERN (MongoDB, Express.js, React.js, Node.js) stack to provide a robust, scalable, and user-friendly platform.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "mongoose": "^8.8.2",
+    "multer": "^1.4.5-lts.1"
+  }
+}
