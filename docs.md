@@ -1,3 +1,7 @@
+# AccuRecord - Centralized Patient History Management System
+
+---
+
 # Introduction
 
 We are proud to present AccuRecord, a tool designed to transform how medical records are managed, accessed, and utilized. Let us show you how it addresses a pressing challenge in healthcare with innovation and impact.
@@ -46,19 +50,15 @@ Imagine a future where no critical medical history is ever lost, delayed, or ina
 
 ---
 
-# AccuRecord - Centralized Patient History Management System
-
 ## Table of Contents
 
 1. [Project Overview](#project-overview)
 2. [Architecture](#architecture)
 3. [Core Components](#core-components)
 4. [Authentication System](#authentication-system)
-5. [Frontend Architecture](#frontend-architecture)
-6. [API Documentation](#api-documentation)
-7. [Development Setup](#development-setup)
-8. [Security Features](#security-features)
-9. [Contributing](#contributing)
+5. [Development Setup](#development-setup)
+6. [Security Features](#security-features)
+7. [Contributing](#contributing)
 
 ## Project Overview
 
@@ -90,16 +90,78 @@ AccuRecord is a comprehensive web application designed to streamline the storage
 - **File Storage**: Cloudinary
 - **Password Hashing**: bcrypt
 
-## Authentication System
+## Core Components
 
-### JWT Implementation
+### Models
+
+#### 1. Doctor Model
+
+Key features:
+
+- Unique doctor ID
+- JWT-based authentication
+- Password hashing with bcrypt
+- Patient assignment tracking
+
+#### 2. Patient Model
+
+Key features:
+
+- Comprehensive medical history tracking
+- Doctor relationship mapping
+- Secure authentication
+
+#### 3. Admin Model
+
+Key features:
+
+1. **Superuser Privileges**
+
+   - Full system access and control
+   - Override capabilities for critical operations
+   - Access to all user management functions
+
+2. **User Management**
+
+   - Create/Delete doctor accounts
+   - Create/Delete patient accounts
+   - Modify user roles and permissions
+   - Reset user passwords
+   - Manage user account status (active/inactive)
+
+3. **System Administration**
+
+   - Monitor system logs
+   - View audit trails
+   - Configure system settings
+   - Manage hospital/department information
+   - Handle system maintenance tasks
+
+4. **Data Management**
+
+   - Access to all patient records
+   - Ability to merge duplicate records
+   - Data export capabilities
+   - Backup and restore functionality
+   - Archive management
+
+5. **Security Controls**
+   - IP whitelist management
+   - Session management
+   - Access log monitoring
+   - Security policy enforcement
+   - Two-factor authentication setup
+
+### Authentication System
+
+#### JWT Implementation
 
 - Access tokens (short-lived)
 - Refresh tokens (long-lived)
 - HTTP-only cookies
 - Role-based middleware
 
-### Authentication Flow
+#### Authentication Flow
 
 1. User submits credentials
 2. Server validates credentials
@@ -107,24 +169,28 @@ AccuRecord is a comprehensive web application designed to streamline the storage
 4. Tokens stored in HTTP-only cookies
 5. Client includes cookies in subsequent requests
 
-<!-- ### Component Structure
-'''
+## Component Structure
+
+```bash
 src/
 ├── components/
 │ ├── auth/
+│ │ ├──AuthPage.jsx
 │ │ ├── Login.jsx
-│ │ ├── Register.jsx
-│ │ └── AuthContext.jsx
-│ ├── dashboard/
+│ │ └── Register.jsx
+│ │
+│ └── dashboard/
 │ │ ├── DoctorDashboard.jsx
 │ │ ├── PatientDashboard.jsx
 │ │ └── AdminDashboard.jsx
+│ │
 │ └── shared/
 │ ├── Navbar.jsx
 │ ├── Footer.jsx
 │ └── Loading.jsx
+│
 └── App.jsx
-''' -->
+```
 
 ## Development Setup
 
@@ -136,6 +202,16 @@ src/
 - Git
 
 ### Environment Variables
+
+Required environment variables:
+
+- `MONGO_DB_URI`: MongoDB connection string
+- `PORT`: Server port
+- `ACCESS_TOKEN_SECRET`: JWT access token secret
+- `REFRESH_TOKEN_SECRET`: JWT refresh token secret
+- `CLOUDINARY_CLOUD_NAME`: Cloudinary cloud name
+- `CLOUDINARY_API_KEY`: Cloudinary API key
+- `CLOUDINARY_API_SECRET`: Cloudinary API secret
 
 ### Installation Steps
 

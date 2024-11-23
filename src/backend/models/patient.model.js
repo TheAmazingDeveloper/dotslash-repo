@@ -5,6 +5,7 @@ import jwt from "jsonwebtoken";
 const PatientSchema = new mongoose.Schema(
   {
     id: { type: String, unique: true, required: true },
+    avatarUrl: { type: String, required: true },
     name: { type: String, required: true },
     email: { type: String, unique: true },
     password: { type: String },
