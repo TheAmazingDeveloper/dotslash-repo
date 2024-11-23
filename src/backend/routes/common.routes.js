@@ -1,6 +1,10 @@
 import { Router } from "express";
 import multerFileUpload from "../middleware/multer.middleware.js";
-import { loginUser, registerUser } from "../controller/common.controller.js";
+import {
+  registerUser,
+  loginUser,
+  logoutUser,
+} from "../controller/common.controller.js";
 const commonRouter = Router();
 commonRouter.post(
   "/auth/register",
@@ -8,5 +12,6 @@ commonRouter.post(
   registerUser
 );
 commonRouter.post("/auth/login", loginUser);
+commonRouter.get("/auth/logout", logoutUser);
 
 export default commonRouter;

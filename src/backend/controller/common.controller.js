@@ -136,3 +136,7 @@ export const loginUser = async (req, res) => {
     return res.json(new ApiResponse(false, null, error));
   }
 };
+
+export const logoutUser = async (req, res) => {
+  return res.setCookie("accessToken", "").setCookie("refreshToken", "").send();
+};

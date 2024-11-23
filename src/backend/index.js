@@ -26,6 +26,7 @@ app.use("/static", express.static(path.join(__dirname, "public")));
 (async () => {
   try {
     await mongoose.connect(process.env.MONGO_DB_URI);
+    console.log("MONGO_DB connected successfully");
     app.listen(process.env.PORT, () => {
       console.log(`Server listening on http://localhost:${process.env.PORT}`);
     });
