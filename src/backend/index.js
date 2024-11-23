@@ -5,6 +5,7 @@ import path from "path";
 import mongoose from "mongoose";
 import __dirname from "./utils/directoryname.js";
 import cookieParser from "cookie-parser";
+import commonRouter from "./routes/common.routes.js";
 dotenv.config({ path: "./.env" });
 
 // Initializing
@@ -32,3 +33,8 @@ app.use("/static", express.static(path.join(__dirname, "public")));
     console.log(error);
   }
 })();
+
+app.use("/", commonRouter);
+
+// app.use('/doctor', )
+// app.use('/patient', )
